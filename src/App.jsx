@@ -177,7 +177,7 @@ function App() {
                         <span className="eyebrow">About</span>
                         <h1>Get to know me</h1>
                         <div className="about-row">
-                            <img src={`${import.meta.env.BASE_URL}profile.jpeg`} alt={profile.name} className="avatar-img" />
+                            
                             <p className="about-text">{aboutText}</p>
                         </div>
 
