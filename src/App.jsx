@@ -124,7 +124,7 @@ function App() {
             <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
                 <div className="sidebar-profile">
                     <div className="avatar-ring">
-                        <img src="/profile.jpeg" alt={profile.name} className="avatar-img" />
+                        <img src={`${import.meta.env.BASE_URL}profile.jpeg`} alt={profile.name} className="avatar-img" />
                     </div>
                     <h2>{profile.name}</h2>
                     <p>{profile.title}</p>
@@ -177,7 +177,7 @@ function App() {
                         <span className="eyebrow">About</span>
                         <h1>Get to know me</h1>
                         <div className="about-row">
-                            <img src="/profile.jpeg" alt={profile.name} className="about-img" />
+                            <img src={`${import.meta.env.BASE_URL}profile.jpeg`} alt={profile.name} className="avatar-img" />
                             <p className="about-text">{aboutText}</p>
                         </div>
 
