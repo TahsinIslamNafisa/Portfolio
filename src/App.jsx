@@ -75,7 +75,7 @@ const skillCategories = [
     },
     {
         category: "Tools",
-        items: ["Git", "GitHub"],
+        items: ["Git Version Controlling"],
     },
 ];
 
