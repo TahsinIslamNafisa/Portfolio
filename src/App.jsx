@@ -55,50 +55,27 @@ const stats = [
 const skillCategories = [
     {
         category: "Programming Languages",
-        items: [
-            { name: "JavaScript", level: 85 },
-            { name: "Python", level: 80 },
-            { name: "PHP", level: 70 },
-        ],
+        items: ["C", "C++", "JavaScript", "Python", "PHP"],
     },
     {
         category: "Frontend",
-        items: [
-            { name: "React.js", level: 80 },
-            { name: "Next.js", level: 75 },
-            { name: "HTML / CSS / Tailwind CSS", level: 90 },
-        ],
+        items: ["React.js", "Next.js", "HTML", "CSS", "Tailwind CSS"],
     },
     {
         category: "Backend & Database",
-        items: [
-            { name: "Node.js", level: 75 },
-            { name: "Express.js", level: 75 },
-            { name: "MongoDB", level: 75 },
-            { name: "SQL", level: 75 },
-        ],
+        items: ["Node.js", "Express.js", "MongoDB", "SQL"],
     },
     {
         category: "AI / Machine Learning",
-        items: [
-            { name: "Machine Learning", level: 75 },
-            { name: "Deep Learning", level: 70 },
-            { name: "Computer Vision", level: 65 },
-            { name: "Artificial Intelligence", level: 70 },
-        ],
+        items: ["Machine Learning", "Deep Learning", "Computer Vision", "Artificial Intelligence"],
     },
     {
         category: "Networking",
-        items: [
-            { name: "Network Design", level: 70 },
-            { name: "Computer Networking", level: 70 },
-        ],
+        items: ["Network Design", "Computer Networking"],
     },
     {
         category: "Tools",
-        items: [
-            { name: "Git / GitHub", level: 75 },
-        ],
+        items: ["Git", "GitHub"],
     },
 ];
 
@@ -229,17 +206,9 @@ function App() {
                         {skillCategories.map((cat) => (
                             <div className="skill-category" key={cat.category}>
                                 <h2 className="skill-category-title">{cat.category}</h2>
-                                <div className="skills-list">
+                                <div className="skill-tags">
                                     {cat.items.map((skill) => (
-                                        <div className="skill-item" key={skill.name}>
-                                            <div className="skill-header">
-                                                <span>{skill.name}</span>
-                                                <span>{skill.level}%</span>
-                                            </div>
-                                            <div className="skill-bar-bg">
-                                                <div className="skill-bar-fill" style={{ width: `${skill.level}%` }}></div>
-                                            </div>
-                                        </div>
+                                        <span className="skill-tag" key={skill}>{skill}</span>
                                     ))}
                                 </div>
                             </div>
