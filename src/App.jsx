@@ -101,6 +101,7 @@ const skillCategories = [
         ],
     },
 ];
+
 const projects = [
     {
         title: "Email Phishing Detector",
@@ -143,23 +144,18 @@ function App() {
 
     return (
         <div className="layout">
-            <div className="mobile-bar">
-                <span className="mobile-logo">{profile.name}</span>
-                <button className="menu-btn" onClick={() => setSidebarOpen(!sidebarOpen)}>
-                    {sidebarOpen ? <FiX /> : <FiMenu />}
-                </button>
-            </div>
-
-            <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-                <div className="sidebar-profile">
+            <header className="topbar">
+                <div className="topbar-profile">
                     <div className="avatar-ring">
                         <img src={`${import.meta.env.BASE_URL}profile.jpeg`} alt={profile.name} className="avatar-img" />
                     </div>
-                    <h2>{profile.name}</h2>
-                    <p>{profile.title}</p>
+                    <div>
+                        <h2>{profile.name}</h2>
+                        <p>{profile.title}</p>
+                    </div>
                 </div>
 
-                <nav className="sidebar-nav">
+                <nav className={`topbar-nav ${sidebarOpen ? "open" : ""}`}>
                     {navItems.map((item) => (
                         <button
                             key={item.id}
@@ -172,12 +168,16 @@ function App() {
                     ))}
                 </nav>
 
-                <div className="sidebar-social">
+                <div className="topbar-social">
                     <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><FiGithub /></a>
                     <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FiLinkedin /></a>
                     <a href={`mailto:${profile.email}`} aria-label="Email"><FiMail /></a>
                 </div>
-            </aside>
+
+                <button className="menu-btn mobile-only" onClick={() => setSidebarOpen(!sidebarOpen)}>
+                    {sidebarOpen ? <FiX /> : <FiMenu />}
+                </button>
+            </header>
 
             <main className="content">
                 {currentPage === "home" && (
@@ -223,29 +223,29 @@ function App() {
                 )}
 
                 {currentPage === "skills" && (
-    <section className="page">
-        <span className="eyebrow">Skills</span>
-        <h1>What I work with</h1>
-        {skillCategories.map((cat) => (
-            <div className="skill-category" key={cat.category}>
-                <h2 className="skill-category-title">{cat.category}</h2>
-                <div className="skills-list">
-                    {cat.items.map((skill) => (
-                        <div className="skill-item" key={skill.name}>
-                            <div className="skill-header">
-                                <span>{skill.name}</span>
-                                <span>{skill.level}%</span>
+                    <section className="page">
+                        <span className="eyebrow">Skills</span>
+                        <h1>What I work with</h1>
+                        {skillCategories.map((cat) => (
+                            <div className="skill-category" key={cat.category}>
+                                <h2 className="skill-category-title">{cat.category}</h2>
+                                <div className="skills-list">
+                                    {cat.items.map((skill) => (
+                                        <div className="skill-item" key={skill.name}>
+                                            <div className="skill-header">
+                                                <span>{skill.name}</span>
+                                                <span>{skill.level}%</span>
+                                            </div>
+                                            <div className="skill-bar-bg">
+                                                <div className="skill-bar-fill" style={{ width: `${skill.level}%` }}></div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                            <div className="skill-bar-bg">
-                                <div className="skill-bar-fill" style={{ width: `${skill.level}%` }}></div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        ))}
-    </section>
-)}
+                        ))}
+                    </section>
+                )}
 
                 {currentPage === "certifications" && (
                     <section className="page">
@@ -260,7 +260,6 @@ function App() {
                                         <span className="cert-name">{item.name}</span>
                                         <span className="cert-issuer">{item.issuer}</span>
                                     </div>
-                   
                                 </div>
                             ))}
                         </div>
@@ -273,7 +272,6 @@ function App() {
                                         <span className="cert-name">{item.name}</span>
                                         <span className="cert-issuer">{item.issuer}</span>
                                     </div>
-                                    
                                 </div>
                             ))}
                         </div>
@@ -286,7 +284,6 @@ function App() {
                                         <span className="cert-name">{item.name}</span>
                                         <span className="cert-issuer">{item.issuer}</span>
                                     </div>
-                                    
                                 </div>
                             ))}
                         </div>
