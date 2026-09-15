@@ -124,7 +124,12 @@ function App() {
             <header className="topbar">
                 <div className="topbar-profile">
                     <div className="avatar-ring">
-                        <img src={`${import.meta.env.BASE_URL}profile.jpeg`} alt={profile.name} className="avatar-img" />
+                        <img
+                            src={`${import.meta.env.BASE_URL}profile.jpeg`}
+                            alt={profile.name}
+                            className="avatar-img"
+                            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                        />
                     </div>
                     <div>
                         <h2>{profile.name}</h2>
