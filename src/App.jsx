@@ -52,26 +52,55 @@ const stats = [
     { label: "Years Learning", value: "4+" },
 ];
 
-const skills = [
-    { name: "JavaScript", level: 85 },
-    { name: "Reactjs", level: 80 },
-    { name: "HTML / CSS / Tailwind CSS", level: 90 },
-    { name: "Node.js", level: 75 },
-    { name: "Next.js", level: 75 },
-    { name: "Express.js", level: 75 },
-    { name: "MongoDB", level: 75 },
-    { name: "SQL", level: 75 },
-    { name: "Python", level: 80 },
-    { name: "Machine Learning", level: 75 },
-    { name: "Deep Learning", level: 70 },
-    { name: "Computer Vision", level: 65 },
-    { name: "Artificial Intelligence", level: 70 },
-    { name: "PHP", level: 70 },
-    { name: "Network Design", level: 70 },
-    { name: "Computer Networking", level: 70 },
-    { name: "Git / GitHub", level: 75 },
+const skillCategories = [
+    {
+        category: "Programming Languages",
+        items: [
+            { name: "JavaScript", level: 85 },
+            { name: "Python", level: 80 },
+            { name: "PHP", level: 70 },
+        ],
+    },
+    {
+        category: "Frontend",
+        items: [
+            { name: "React.js", level: 80 },
+            { name: "Next.js", level: 75 },
+            { name: "HTML / CSS / Tailwind CSS", level: 90 },
+        ],
+    },
+    {
+        category: "Backend & Database",
+        items: [
+            { name: "Node.js", level: 75 },
+            { name: "Express.js", level: 75 },
+            { name: "MongoDB", level: 75 },
+            { name: "SQL", level: 75 },
+        ],
+    },
+    {
+        category: "AI / Machine Learning",
+        items: [
+            { name: "Machine Learning", level: 75 },
+            { name: "Deep Learning", level: 70 },
+            { name: "Computer Vision", level: 65 },
+            { name: "Artificial Intelligence", level: 70 },
+        ],
+    },
+    {
+        category: "Networking",
+        items: [
+            { name: "Network Design", level: 70 },
+            { name: "Computer Networking", level: 70 },
+        ],
+    },
+    {
+        category: "Tools",
+        items: [
+            { name: "Git / GitHub", level: 75 },
+        ],
+    },
 ];
-
 const projects = [
     {
         title: "Email Phishing Detector",
@@ -194,24 +223,29 @@ function App() {
                 )}
 
                 {currentPage === "skills" && (
-                    <section className="page">
-                        <span className="eyebrow">Skills</span>
-                        <h1>What I work with</h1>
-                        <div className="skills-list">
-                            {skills.map((skill) => (
-                                <div className="skill-item" key={skill.name}>
-                                    <div className="skill-header">
-                                        <span>{skill.name}</span>
-                                        <span>{skill.level}%</span>
-                                    </div>
-                                    <div className="skill-bar-bg">
-                                        <div className="skill-bar-fill" style={{ width: `${skill.level}%` }}></div>
-                                    </div>
-                                </div>
-                            ))}
+    <section className="page">
+        <span className="eyebrow">Skills</span>
+        <h1>What I work with</h1>
+        {skillCategories.map((cat) => (
+            <div className="skill-category" key={cat.category}>
+                <h2 className="skill-category-title">{cat.category}</h2>
+                <div className="skills-list">
+                    {cat.items.map((skill) => (
+                        <div className="skill-item" key={skill.name}>
+                            <div className="skill-header">
+                                <span>{skill.name}</span>
+                                <span>{skill.level}%</span>
+                            </div>
+                            <div className="skill-bar-bg">
+                                <div className="skill-bar-fill" style={{ width: `${skill.level}%` }}></div>
+                            </div>
                         </div>
-                    </section>
-                )}
+                    ))}
+                </div>
+            </div>
+        ))}
+    </section>
+)}
 
                 {currentPage === "certifications" && (
                     <section className="page">
